@@ -1,15 +1,18 @@
-#vared kardane tarikhe milady
+#Inputing the European date
+
 Myear = int(input('Enter year: '))
 Mmonth = int(input ('Enter month: '))
 Mday = int(input ('Enter day: '))
-#tarif kardan tabE baraye tabdil be tarikhe shamsi
+
+# Function to convert European date to Shamsi date
 def dateConv(Myear, Mmonth, Mday):
     Mmonthlist = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     Smonthlist = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29]
-#chek kardane sale kabise
+#Checking 366-days year
     if Myear%4 == 0:
         Mmonthlist[1] = 29
-#mohasebeye kolle roozha
+        
+#total number of days
     Mdays = (Myear - 1) * 365 + sum(Mmonthlist[0:Mmonth-1]) + Mday + (Myear -1)// 4
     Sdays = Mdays -226899          #tafavot beyne avlin rooze miladi v shamsi
     Syear = ((Sdays - (((Myear -1)//4) - 155) ) //365) + 1         #mohasebeye sale shamsi
